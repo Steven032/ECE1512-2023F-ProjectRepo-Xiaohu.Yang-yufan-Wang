@@ -1,15 +1,39 @@
+****This repo is for ECE1512 Project B****
 
 
-Here is the explanation of what is included in the Supplementary file:
 
 
-    1.networks.ipynb is a Python notebook that provides six different networks, including MLP, Convent, LeNet, AlexNet, VGG11, and ResNet-18. You will use this file to learn synthetic dates on the MNIST and CIFAR10 datasets.
 
-    2. mhist_dataset is a folder containing two subfolders, including the images and their annotations, for the MHIST dataset. All 3152 images are in the images.zip file. Annotations are included in annotations.csv. Note that this file includes each image file name and its corresponding majority-vote label and degree of annotator agreement expressed as the number of annotators who marked the image as SSA (e.g., 6 indicates 6/7 agreement with a ground truth of SSA, and 2 would indicate 5/7 agreement with a ground truth of HP).
+**Task2**
+<br />***The PC sysytm we use to run is Ubuntu, the GPU we use is GTX3090Ti***
+
+
+<br />The second paper we pick is "Dataset Distillation by Matching Training Trajectories"
+<br />***All the code related to this paper is placed in "mtt-distillation-main"***
+<br />**run steps**
+<br />1. Download the folder to you PC using "https://minhaskamal.github.io/DownGit/#/home" 
+<br />2. Run the following in terminal to setup environment
+```bash
+conda env create -f requirements_11_3.yaml
+```
+3. Activate your conda environment with
+```bash
+conda activate distillation
+```
+<br />4. Generating Expert Trajectories
+Before doing any distillation, you'll need to generate some expert trajectories using ```buffer.py```
+The following command will train 100 ConvNet models on MNIST with ZCA whitening for 50 epochs each:
+```bash
+python buffer.py --dataset=MNIST --model=ConvNet --train_epochs=50 --num_experts=100 --zca --buffer_path={path_to_buffer_storage} --data_path={path_to_dataset}
+```
+    <br />4
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
     
-    3.utils.ipynb is a Python notebook that provides utilities such as access to datasets, preprocessing, and data augmentation. You will use this file to learn synthetic dates on the MNIST and CIFAR10 datasets.
-
-    4. Project_B_FAQs.pdf is a list of frequently asked questions that try to shed light on (almost) all of your questions and concerns that you may have during Project B.
 
 
 
