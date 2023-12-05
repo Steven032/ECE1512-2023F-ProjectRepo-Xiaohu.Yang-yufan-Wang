@@ -22,12 +22,19 @@ conda activate distillation
 ```
 <br />4. Generating Expert Trajectories
 Before doing any distillation, you'll need to generate some expert trajectories using ```buffer.py```
+
 The following command will train 100 ConvNet models on MNIST with ZCA whitening for 50 epochs each:
 ```bash
 python buffer.py --dataset=MNIST --model=ConvNet --train_epochs=50 --num_experts=100 --zca --buffer_path={path_to_buffer_storage} --data_path={path_to_dataset}
 ```
-    <br />4
-    <br />
+
+<br />5.Distillation by Matching Training Trajectories
+The following command will then use the buffers we just generated to distill MNIST down to  10 image per class:
+```bash
+python distill.py --dataset=MNIST --ipc=10 --syn_steps=20 --expert_epochs=2 --max_start_epoch=4 --zca --Iteration=1000  --lr_img=1000 --lr_lr=1e-05 --lr_teacher=0.01 --buffer_path={path_to_buffer_storage} --data_path={path_to_dataset}
+```
+   
+    
     <br />
     <br />
     <br />
