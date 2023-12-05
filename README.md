@@ -34,6 +34,7 @@ The following command will then use the buffers we just generated to distill MNI
 python distill.py --dataset=MNIST --ipc=10 --syn_steps=20 --expert_epochs=2 --max_start_epoch=4 --zca --Iteration=1000  --lr_img=1000 --lr_lr=1e-05 --lr_teacher=0.01 --buffer_path={path_to_buffer_storage} --data_path={path_to_dataset}
 ```
 ***The output can be find here in this repo once finish the above process
+
  <br />mtt-distillation-main/Output of Generating Expert Trajectories&Distillation by Matching Training Trajectories
     
  
