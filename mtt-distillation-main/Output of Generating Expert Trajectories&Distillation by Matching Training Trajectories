@@ -85,7 +85,7 @@ Saving {path_to_buffer_storage}/MNIST/ConvNet/replay_buffer_10.pt
 
 
 
-
+### Distillation by Matching Training Trajectories
 
 
 
