@@ -1,0 +1,631 @@
+(base) stevenubuntu@stevenubuntu:~/Desktop/DATM-main/buffer$ python buffer_FTD.py --dataset=MNIST --model=ConvNet --train_epochs=50 --num_experts=100 --zca --buffer_path=../buffer_storage/ --data_path=../dataset/ --rho_max=0.01 --rho_min=0.01 --alpha=0.3 --lr_teacher=0.01 --mom=0. --batch_train=256
+Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz to ../dataset/MNIST/raw/train-images-idx3-ubyte.gz
+100%|██████████████████████████| 9912422/9912422 [00:00<00:00, 103806146.73it/s]
+Extracting ../dataset/MNIST/raw/train-images-idx3-ubyte.gz to ../dataset/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz to ../dataset/MNIST/raw/train-labels-idx1-ubyte.gz
+100%|██████████████████████████████| 28881/28881 [00:00<00:00, 107964076.49it/s]
+Extracting ../dataset/MNIST/raw/train-labels-idx1-ubyte.gz to ../dataset/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz to ../dataset/MNIST/raw/t10k-images-idx3-ubyte.gz
+100%|██████████████████████████| 1648877/1648877 [00:00<00:00, 133010700.96it/s]
+Extracting ../dataset/MNIST/raw/t10k-images-idx3-ubyte.gz to ../dataset/MNIST/raw
+
+Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz
+Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to ../dataset/MNIST/raw/t10k-labels-idx1-ubyte.gz
+100%|█████████████████████████████████| 4542/4542 [00:00<00:00, 16254717.38it/s]
+Extracting ../dataset/MNIST/raw/t10k-labels-idx1-ubyte.gz to ../dataset/MNIST/raw
+
+Train ZCA
+100%|██████████████████████████████████| 60000/60000 [00:01<00:00, 54229.62it/s]
+Test ZCA
+100%|██████████████████████████████████| 10000/10000 [00:00<00:00, 56818.91it/s]
+Hyper-parameters: 
+ {'dataset': 'MNIST', 'subset': 'imagenette', 'model': 'ConvNet', 'num_experts': 100, 'lr_teacher': 0.01, 'batch_train': 256, 'batch_real': 256, 'dsa': True, 'dsa_strategy': 'color_crop_cutout_flip_scale_rotate', 'data_path': '../dataset/', 'buffer_path': '../buffer_storage/', 'train_epochs': 50, 'zca': True, 'decay': False, 'mom': 0.0, 'l2': 0, 'save_interval': 10, 'rho_max': 0.01, 'rho_min': 0.01, 'alpha': 0.3, 'adaptive': True, 'device': 'cuda', 'dsa_param': <utils.utils_gsam.ParamDiffAug object at 0x7f5af4d8b910>, 'zca_trans': ZCAWhitening()}
+BUILDING DATASET
+  0%|                                                 | 0/60000 [00:00<?, ?it/s]/home/stevenubuntu/Desktop/DATM-main/buffer/buffer_FTD.py:44: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  labels_all.append(class_map[torch.tensor(sample[1]).item()])
+100%|█████████████████████████████████| 60000/60000 [00:00<00:00, 187120.69it/s]
+60000it [00:00, 11470816.35it/s]
+class c = 0: 5923 real images
+class c = 1: 6742 real images
+class c = 2: 5958 real images
+class c = 3: 6131 real images
+class c = 4: 5842 real images
+class c = 5: 5421 real images
+class c = 6: 5918 real images
+
+
+
+
+Itr: 94	Epoch: 12	Train Acc: 0.964	Test Acc: 0.9773
+Itr: 94	Epoch: 13	Train Acc: 0.9644333333333334	Test Acc: 0.9903
+Itr: 94	Epoch: 14	Train Acc: 0.9640166666666666	Test Acc: 0.9784
+Itr: 94	Epoch: 15	Train Acc: 0.9664666666666667	Test Acc: 0.9912
+Itr: 94	Epoch: 16	Train Acc: 0.9674166666666667	Test Acc: 0.9895
+Itr: 94	Epoch: 17	Train Acc: 0.9723666666666667	Test Acc: 0.9898
+Itr: 94	Epoch: 18	Train Acc: 0.96905	Test Acc: 0.9897
+Itr: 94	Epoch: 19	Train Acc: 0.9699166666666666	Test Acc: 0.9837
+Itr: 94	Epoch: 20	Train Acc: 0.9725333333333334	Test Acc: 0.9916
+Itr: 94	Epoch: 21	Train Acc: 0.9727	Test Acc: 0.9895
+Itr: 94	Epoch: 22	Train Acc: 0.9737	Test Acc: 0.9924
+Itr: 94	Epoch: 23	Train Acc: 0.97315	Test Acc: 0.9882
+Itr: 94	Epoch: 24	Train Acc: 0.972	Test Acc: 0.9918
+Itr: 94	Epoch: 25	Train Acc: 0.9761	Test Acc: 0.9865
+Itr: 94	Epoch: 26	Train Acc: 0.9759666666666666	Test Acc: 0.9919
+Itr: 94	Epoch: 27	Train Acc: 0.9739833333333333	Test Acc: 0.9842
+Itr: 94	Epoch: 28	Train Acc: 0.9770666666666666	Test Acc: 0.9917
+Itr: 94	Epoch: 29	Train Acc: 0.9755666666666667	Test Acc: 0.991
+Itr: 94	Epoch: 30	Train Acc: 0.97535	Test Acc: 0.9934
+Itr: 94	Epoch: 31	Train Acc: 0.9785166666666667	Test Acc: 0.9912
+Itr: 94	Epoch: 32	Train Acc: 0.9796333333333334	Test Acc: 0.9933
+Itr: 94	Epoch: 33	Train Acc: 0.97845	Test Acc: 0.9906
+Itr: 94	Epoch: 34	Train Acc: 0.9788333333333333	Test Acc: 0.9919
+Itr: 94	Epoch: 35	Train Acc: 0.9795166666666667	Test Acc: 0.9873
+Itr: 94	Epoch: 36	Train Acc: 0.97975	Test Acc: 0.9929
+Itr: 94	Epoch: 37	Train Acc: 0.9792333333333333	Test Acc: 0.9924
+Itr: 94	Epoch: 38	Train Acc: 0.9830333333333333	Test Acc: 0.992
+Itr: 94	Epoch: 39	Train Acc: 0.9798666666666667	Test Acc: 0.9819
+Itr: 94	Epoch: 40	Train Acc: 0.9815333333333334	Test Acc: 0.9913
+Itr: 94	Epoch: 41	Train Acc: 0.9821666666666666	Test Acc: 0.9929
+Itr: 94	Epoch: 42	Train Acc: 0.9802166666666666	Test Acc: 0.9936
+Itr: 94	Epoch: 43	Train Acc: 0.9809333333333333	Test Acc: 0.9928
+Itr: 94	Epoch: 44	Train Acc: 0.9827166666666667	Test Acc: 0.9937
+Itr: 94	Epoch: 45	Train Acc: 0.9792	Test Acc: 0.9929
+Itr: 94	Epoch: 46	Train Acc: 0.9817666666666667	Test Acc: 0.9924
+Itr: 94	Epoch: 47	Train Acc: 0.9829166666666667	Test Acc: 0.9921
+Itr: 94	Epoch: 48	Train Acc: 0.9846666666666667	Test Acc: 0.9919
+Itr: 94	Epoch: 49	Train Acc: 0.9821333333333333	Test Acc: 0.9922
+Itr: 95	Epoch: 0	Train Acc: 0.76525	Test Acc: 0.9534
+Itr: 95	Epoch: 1	Train Acc: 0.8705333333333334	Test Acc: 0.9693
+Itr: 95	Epoch: 2	Train Acc: 0.90195	Test Acc: 0.9689
+Itr: 95	Epoch: 3	Train Acc: 0.9211833333333334	Test Acc: 0.9814
+Itr: 95	Epoch: 4	Train Acc: 0.9308333333333333	Test Acc: 0.9811
+Itr: 95	Epoch: 5	Train Acc: 0.9404166666666667	Test Acc: 0.9818
+Itr: 95	Epoch: 6	Train Acc: 0.9390333333333334	Test Acc: 0.9832
+Itr: 95	Epoch: 7	Train Acc: 0.9466166666666667	Test Acc: 0.9858
+Itr: 95	Epoch: 8	Train Acc: 0.9545666666666667	Test Acc: 0.9838
+Itr: 95	Epoch: 9	Train Acc: 0.9553833333333334	Test Acc: 0.9874
+Itr: 95	Epoch: 10	Train Acc: 0.9548666666666666	Test Acc: 0.986
+Itr: 95	Epoch: 11	Train Acc: 0.9617333333333333	Test Acc: 0.9875
+Itr: 95	Epoch: 12	Train Acc: 0.9632	Test Acc: 0.9896
+Itr: 95	Epoch: 13	Train Acc: 0.9625833333333333	Test Acc: 0.9877
+Itr: 95	Epoch: 14	Train Acc: 0.9654666666666667	Test Acc: 0.9893
+Itr: 95	Epoch: 15	Train Acc: 0.96745	Test Acc: 0.9891
+Itr: 95	Epoch: 16	Train Acc: 0.9688833333333333	Test Acc: 0.988
+Itr: 95	Epoch: 17	Train Acc: 0.9683	Test Acc: 0.9893
+Itr: 95	Epoch: 18	Train Acc: 0.9691833333333333	Test Acc: 0.9901
+Itr: 95	Epoch: 19	Train Acc: 0.9684833333333334	Test Acc: 0.9904
+Itr: 95	Epoch: 20	Train Acc: 0.9698166666666667	Test Acc: 0.9881
+Itr: 95	Epoch: 21	Train Acc: 0.97255	Test Acc: 0.9907
+Itr: 95	Epoch: 22	Train Acc: 0.97175	Test Acc: 0.9896
+Itr: 95	Epoch: 23	Train Acc: 0.9731833333333333	Test Acc: 0.9907
+Itr: 95	Epoch: 24	Train Acc: 0.9762166666666666	Test Acc: 0.9877
+Itr: 95	Epoch: 25	Train Acc: 0.9739666666666666	Test Acc: 0.9913
+Itr: 95	Epoch: 26	Train Acc: 0.9744333333333334	Test Acc: 0.9915
+Itr: 95	Epoch: 27	Train Acc: 0.97435	Test Acc: 0.9912
+Itr: 95	Epoch: 28	Train Acc: 0.9762833333333333	Test Acc: 0.9893
+Itr: 95	Epoch: 29	Train Acc: 0.9747333333333333	Test Acc: 0.9904
+Itr: 95	Epoch: 30	Train Acc: 0.9782166666666666	Test Acc: 0.9913
+Itr: 95	Epoch: 31	Train Acc: 0.9776833333333333	Test Acc: 0.988
+Itr: 95	Epoch: 32	Train Acc: 0.9784	Test Acc: 0.9892
+Itr: 95	Epoch: 33	Train Acc: 0.9775	Test Acc: 0.9905
+Itr: 95	Epoch: 34	Train Acc: 0.979	Test Acc: 0.9905
+Itr: 95	Epoch: 35	Train Acc: 0.9794	Test Acc: 0.9922
+Itr: 95	Epoch: 36	Train Acc: 0.9782833333333333	Test Acc: 0.9918
+Itr: 95	Epoch: 37	Train Acc: 0.9804333333333334	Test Acc: 0.987
+Itr: 95	Epoch: 38	Train Acc: 0.97945	Test Acc: 0.9921
+Itr: 95	Epoch: 39	Train Acc: 0.9801333333333333	Test Acc: 0.9916
+Itr: 95	Epoch: 40	Train Acc: 0.9800166666666666	Test Acc: 0.9922
+Itr: 95	Epoch: 41	Train Acc: 0.9811666666666666	Test Acc: 0.9928
+Itr: 95	Epoch: 42	Train Acc: 0.9820166666666666	Test Acc: 0.993
+Itr: 95	Epoch: 43	Train Acc: 0.9824833333333334	Test Acc: 0.9923
+Itr: 95	Epoch: 44	Train Acc: 0.9810333333333333	Test Acc: 0.993
+Itr: 95	Epoch: 45	Train Acc: 0.9815	Test Acc: 0.9936
+Itr: 95	Epoch: 46	Train Acc: 0.9830666666666666	Test Acc: 0.9924
+Itr: 95	Epoch: 47	Train Acc: 0.9826333333333334	Test Acc: 0.9927
+Itr: 95	Epoch: 48	Train Acc: 0.9829666666666667	Test Acc: 0.9931
+Itr: 95	Epoch: 49	Train Acc: 0.9829833333333333	Test Acc: 0.9929
+Itr: 96	Epoch: 0	Train Acc: 0.7782166666666667	Test Acc: 0.9548
+Itr: 96	Epoch: 1	Train Acc: 0.8799666666666667	Test Acc: 0.9673
+Itr: 96	Epoch: 2	Train Acc: 0.89895	Test Acc: 0.9658
+Itr: 96	Epoch: 3	Train Acc: 0.9124333333333333	Test Acc: 0.9766
+Itr: 96	Epoch: 4	Train Acc: 0.9313333333333333	Test Acc: 0.9769
+Itr: 96	Epoch: 5	Train Acc: 0.9310833333333334	Test Acc: 0.9819
+Itr: 96	Epoch: 6	Train Acc: 0.9451666666666667	Test Acc: 0.9773
+Itr: 96	Epoch: 7	Train Acc: 0.9471833333333334	Test Acc: 0.9647
+Itr: 96	Epoch: 8	Train Acc: 0.95135	Test Acc: 0.9858
+Itr: 96	Epoch: 9	Train Acc: 0.9566166666666667	Test Acc: 0.9884
+Itr: 96	Epoch: 10	Train Acc: 0.9575166666666667	Test Acc: 0.9804
+Itr: 96	Epoch: 11	Train Acc: 0.95745	Test Acc: 0.9875
+Itr: 96	Epoch: 12	Train Acc: 0.961	Test Acc: 0.9888
+Itr: 96	Epoch: 13	Train Acc: 0.9639833333333333	Test Acc: 0.9846
+Itr: 96	Epoch: 14	Train Acc: 0.9657166666666667	Test Acc: 0.9861
+Itr: 96	Epoch: 15	Train Acc: 0.9696833333333333	Test Acc: 0.9876
+Itr: 96	Epoch: 16	Train Acc: 0.9681833333333333	Test Acc: 0.9876
+Itr: 96	Epoch: 17	Train Acc: 0.9643333333333334	Test Acc: 0.9883
+Itr: 96	Epoch: 18	Train Acc: 0.9696166666666667	Test Acc: 0.9905
+Itr: 96	Epoch: 19	Train Acc: 0.9690833333333333	Test Acc: 0.9858
+Itr: 96	Epoch: 20	Train Acc: 0.9727666666666667	Test Acc: 0.9898
+Itr: 96	Epoch: 21	Train Acc: 0.97215	Test Acc: 0.9912
+Itr: 96	Epoch: 22	Train Acc: 0.9732833333333333	Test Acc: 0.986
+Itr: 96	Epoch: 23	Train Acc: 0.9748333333333333	Test Acc: 0.9905
+Itr: 96	Epoch: 24	Train Acc: 0.9762	Test Acc: 0.9923
+Itr: 96	Epoch: 25	Train Acc: 0.9766333333333334	Test Acc: 0.9908
+Itr: 96	Epoch: 26	Train Acc: 0.9752	Test Acc: 0.9877
+Itr: 96	Epoch: 27	Train Acc: 0.9742333333333333	Test Acc: 0.9903
+Itr: 96	Epoch: 28	Train Acc: 0.9764666666666667	Test Acc: 0.9916
+Itr: 96	Epoch: 29	Train Acc: 0.9769333333333333	Test Acc: 0.9917
+Itr: 96	Epoch: 30	Train Acc: 0.9796333333333334	Test Acc: 0.9915
+Itr: 96	Epoch: 31	Train Acc: 0.9774333333333334	Test Acc: 0.9931
+Itr: 96	Epoch: 32	Train Acc: 0.9777333333333333	Test Acc: 0.9902
+Itr: 96	Epoch: 33	Train Acc: 0.9788666666666667	Test Acc: 0.9917
+Itr: 96	Epoch: 34	Train Acc: 0.9781166666666666	Test Acc: 0.9905
+Itr: 96	Epoch: 35	Train Acc: 0.9789333333333333	Test Acc: 0.9923
+Itr: 96	Epoch: 36	Train Acc: 0.9794166666666667	Test Acc: 0.9924
+Itr: 96	Epoch: 37	Train Acc: 0.9812833333333333	Test Acc: 0.9925
+Itr: 96	Epoch: 38	Train Acc: 0.9809833333333333	Test Acc: 0.9929
+Itr: 96	Epoch: 39	Train Acc: 0.97945	Test Acc: 0.991
+Itr: 96	Epoch: 40	Train Acc: 0.98015	Test Acc: 0.9923
+Itr: 96	Epoch: 41	Train Acc: 0.9809666666666667	Test Acc: 0.9886
+Itr: 96	Epoch: 42	Train Acc: 0.9822	Test Acc: 0.9926
+Itr: 96	Epoch: 43	Train Acc: 0.9818666666666667	Test Acc: 0.9923
+Itr: 96	Epoch: 44	Train Acc: 0.98165	Test Acc: 0.9919
+Itr: 96	Epoch: 45	Train Acc: 0.9818833333333333	Test Acc: 0.9937
+Itr: 96	Epoch: 46	Train Acc: 0.9824333333333334	Test Acc: 0.9911
+Itr: 96	Epoch: 47	Train Acc: 0.9816833333333334	Test Acc: 0.9921
+Itr: 96	Epoch: 48	Train Acc: 0.98275	Test Acc: 0.9928
+Itr: 96	Epoch: 49	Train Acc: 0.9837333333333333	Test Acc: 0.9927
+Itr: 97	Epoch: 0	Train Acc: 0.77745	Test Acc: 0.9508
+Itr: 97	Epoch: 1	Train Acc: 0.8889333333333334	Test Acc: 0.9706
+Itr: 97	Epoch: 2	Train Acc: 0.90275	Test Acc: 0.9749
+Itr: 97	Epoch: 3	Train Acc: 0.9182666666666667	Test Acc: 0.9789
+Itr: 97	Epoch: 4	Train Acc: 0.9292666666666667	Test Acc: 0.983
+Itr: 97	Epoch: 5	Train Acc: 0.9337833333333333	Test Acc: 0.9825
+Itr: 97	Epoch: 6	Train Acc: 0.9428	Test Acc: 0.9842
+Itr: 97	Epoch: 7	Train Acc: 0.94505	Test Acc: 0.9844
+Itr: 97	Epoch: 8	Train Acc: 0.9504666666666667	Test Acc: 0.9861
+Itr: 97	Epoch: 9	Train Acc: 0.9536166666666667	Test Acc: 0.9833
+Itr: 97	Epoch: 10	Train Acc: 0.9551333333333333	Test Acc: 0.9882
+Itr: 97	Epoch: 11	Train Acc: 0.9595666666666667	Test Acc: 0.9847
+Itr: 97	Epoch: 12	Train Acc: 0.9626333333333333	Test Acc: 0.9893
+Itr: 97	Epoch: 13	Train Acc: 0.9643166666666667	Test Acc: 0.9871
+Itr: 97	Epoch: 14	Train Acc: 0.9629166666666666	Test Acc: 0.9871
+Itr: 97	Epoch: 15	Train Acc: 0.96415	Test Acc: 0.9898
+Itr: 97	Epoch: 16	Train Acc: 0.9683333333333334	Test Acc: 0.9879
+Itr: 97	Epoch: 17	Train Acc: 0.9700666666666666	Test Acc: 0.9895
+Itr: 97	Epoch: 18	Train Acc: 0.96865	Test Acc: 0.9897
+Itr: 97	Epoch: 19	Train Acc: 0.9691166666666666	Test Acc: 0.9872
+Itr: 97	Epoch: 20	Train Acc: 0.9710333333333333	Test Acc: 0.987
+Itr: 97	Epoch: 21	Train Acc: 0.9723166666666667	Test Acc: 0.9899
+Itr: 97	Epoch: 22	Train Acc: 0.9719333333333333	Test Acc: 0.9913
+Itr: 97	Epoch: 23	Train Acc: 0.9753333333333334	Test Acc: 0.9925
+Itr: 97	Epoch: 24	Train Acc: 0.9736	Test Acc: 0.9901
+Itr: 97	Epoch: 25	Train Acc: 0.9735833333333334	Test Acc: 0.99
+Itr: 97	Epoch: 26	Train Acc: 0.9746166666666667	Test Acc: 0.991
+Itr: 97	Epoch: 27	Train Acc: 0.9755	Test Acc: 0.9917
+Itr: 97	Epoch: 28	Train Acc: 0.9757	Test Acc: 0.992
+Itr: 97	Epoch: 29	Train Acc: 0.9769166666666667	Test Acc: 0.9922
+Itr: 97	Epoch: 30	Train Acc: 0.9793833333333334	Test Acc: 0.9912
+Itr: 97	Epoch: 31	Train Acc: 0.9764833333333334	Test Acc: 0.9906
+Itr: 97	Epoch: 32	Train Acc: 0.9771333333333333	Test Acc: 0.9926
+Itr: 97	Epoch: 33	Train Acc: 0.9799166666666667	Test Acc: 0.9925
+Itr: 97	Epoch: 34	Train Acc: 0.97855	Test Acc: 0.9914
+Itr: 97	Epoch: 35	Train Acc: 0.9791	Test Acc: 0.9924
+Itr: 97	Epoch: 36	Train Acc: 0.9816166666666667	Test Acc: 0.991
+Itr: 97	Epoch: 37	Train Acc: 0.9794833333333334	Test Acc: 0.9931
+Itr: 97	Epoch: 38	Train Acc: 0.98045	Test Acc: 0.9926
+Itr: 97	Epoch: 39	Train Acc: 0.9809333333333333	Test Acc: 0.9927
+Itr: 97	Epoch: 40	Train Acc: 0.9813166666666666	Test Acc: 0.9901
+Itr: 97	Epoch: 41	Train Acc: 0.9816833333333334	Test Acc: 0.993
+Itr: 97	Epoch: 42	Train Acc: 0.9816666666666667	Test Acc: 0.9908
+Itr: 97	Epoch: 43	Train Acc: 0.9822666666666666	Test Acc: 0.9924
+Itr: 97	Epoch: 44	Train Acc: 0.9838	Test Acc: 0.992
+Itr: 97	Epoch: 45	Train Acc: 0.9805333333333334	Test Acc: 0.9927
+Itr: 97	Epoch: 46	Train Acc: 0.9821666666666666	Test Acc: 0.9934
+Itr: 97	Epoch: 47	Train Acc: 0.9821	Test Acc: 0.9928
+Itr: 97	Epoch: 48	Train Acc: 0.9841833333333333	Test Acc: 0.993
+Itr: 97	Epoch: 49	Train Acc: 0.98335	Test Acc: 0.9932
+Itr: 98	Epoch: 0	Train Acc: 0.7716	Test Acc: 0.9532
+Itr: 98	Epoch: 1	Train Acc: 0.8777	Test Acc: 0.9706
+Itr: 98	Epoch: 2	Train Acc: 0.9097166666666666	Test Acc: 0.9744
+Itr: 98	Epoch: 3	Train Acc: 0.9183666666666667	Test Acc: 0.9794
+Itr: 98	Epoch: 4	Train Acc: 0.9301	Test Acc: 0.9773
+Itr: 98	Epoch: 5	Train Acc: 0.9360833333333334	Test Acc: 0.9806
+Itr: 98	Epoch: 6	Train Acc: 0.9439333333333333	Test Acc: 0.9838
+Itr: 98	Epoch: 7	Train Acc: 0.95315	Test Acc: 0.9837
+Itr: 98	Epoch: 8	Train Acc: 0.9476333333333333	Test Acc: 0.985
+Itr: 98	Epoch: 9	Train Acc: 0.9516	Test Acc: 0.9877
+Itr: 98	Epoch: 10	Train Acc: 0.9577666666666667	Test Acc: 0.9851
+Itr: 98	Epoch: 11	Train Acc: 0.9625833333333333	Test Acc: 0.987
+Itr: 98	Epoch: 12	Train Acc: 0.9604	Test Acc: 0.9875
+Itr: 98	Epoch: 13	Train Acc: 0.9615	Test Acc: 0.9879
+Itr: 98	Epoch: 14	Train Acc: 0.9632166666666667	Test Acc: 0.9874
+Itr: 98	Epoch: 15	Train Acc: 0.9634166666666667	Test Acc: 0.987
+Itr: 98	Epoch: 16	Train Acc: 0.9681166666666666	Test Acc: 0.9898
+Itr: 98	Epoch: 17	Train Acc: 0.9671	Test Acc: 0.9871
+Itr: 98	Epoch: 18	Train Acc: 0.9697	Test Acc: 0.9891
+Itr: 98	Epoch: 19	Train Acc: 0.9683	Test Acc: 0.9888
+Itr: 98	Epoch: 20	Train Acc: 0.9711	Test Acc: 0.9889
+Itr: 98	Epoch: 21	Train Acc: 0.9713166666666667	Test Acc: 0.9911
+Itr: 98	Epoch: 22	Train Acc: 0.9711666666666666	Test Acc: 0.9882
+Itr: 98	Epoch: 23	Train Acc: 0.97255	Test Acc: 0.9898
+Itr: 98	Epoch: 24	Train Acc: 0.9726	Test Acc: 0.9867
+Itr: 98	Epoch: 25	Train Acc: 0.9747333333333333	Test Acc: 0.9921
+Itr: 98	Epoch: 26	Train Acc: 0.9751166666666666	Test Acc: 0.9902
+Itr: 98	Epoch: 27	Train Acc: 0.97315	Test Acc: 0.9891
+Itr: 98	Epoch: 28	Train Acc: 0.9766	Test Acc: 0.9903
+Itr: 98	Epoch: 29	Train Acc: 0.9747666666666667	Test Acc: 0.9893
+Itr: 98	Epoch: 30	Train Acc: 0.97515	Test Acc: 0.9914
+Itr: 98	Epoch: 31	Train Acc: 0.9788	Test Acc: 0.9902
+Itr: 98	Epoch: 32	Train Acc: 0.97755	Test Acc: 0.9918
+Itr: 98	Epoch: 33	Train Acc: 0.97635	Test Acc: 0.9885
+Itr: 98	Epoch: 34	Train Acc: 0.9764333333333334	Test Acc: 0.9912
+Itr: 98	Epoch: 35	Train Acc: 0.9779333333333333	Test Acc: 0.9913
+Itr: 98	Epoch: 36	Train Acc: 0.9784333333333334	Test Acc: 0.9836
+Itr: 98	Epoch: 37	Train Acc: 0.9793666666666667	Test Acc: 0.9901
+Itr: 98	Epoch: 38	Train Acc: 0.9816833333333334	Test Acc: 0.9918
+Itr: 98	Epoch: 39	Train Acc: 0.9798	Test Acc: 0.9909
+Itr: 98	Epoch: 40	Train Acc: 0.9790833333333333	Test Acc: 0.9922
+Itr: 98	Epoch: 41	Train Acc: 0.98015	Test Acc: 0.9927
+Itr: 98	Epoch: 42	Train Acc: 0.9809333333333333	Test Acc: 0.9926
+Itr: 98	Epoch: 43	Train Acc: 0.98095	Test Acc: 0.9918
+Itr: 98	Epoch: 44	Train Acc: 0.9807833333333333	Test Acc: 0.9922
+Itr: 98	Epoch: 45	Train Acc: 0.9821333333333333	Test Acc: 0.9905
+Itr: 98	Epoch: 46	Train Acc: 0.9814	Test Acc: 0.993
+Itr: 98	Epoch: 47	Train Acc: 0.9818	Test Acc: 0.9927
+Itr: 98	Epoch: 48	Train Acc: 0.98265	Test Acc: 0.9926
+Itr: 98	Epoch: 49	Train Acc: 0.9815666666666667	Test Acc: 0.9927
+Itr: 99	Epoch: 0	Train Acc: 0.7706666666666667	Test Acc: 0.9499
+Itr: 99	Epoch: 1	Train Acc: 0.8795166666666666	Test Acc: 0.9705
+Itr: 99	Epoch: 2	Train Acc: 0.9036166666666666	Test Acc: 0.9755
+Itr: 99	Epoch: 3	Train Acc: 0.9238333333333333	Test Acc: 0.9816
+Itr: 99	Epoch: 4	Train Acc: 0.9228333333333333	Test Acc: 0.9822
+Itr: 99	Epoch: 5	Train Acc: 0.9353666666666667	Test Acc: 0.984
+Itr: 99	Epoch: 6	Train Acc: 0.9394166666666667	Test Acc: 0.9837
+Itr: 99	Epoch: 7	Train Acc: 0.9457	Test Acc: 0.9845
+Itr: 99	Epoch: 8	Train Acc: 0.9529833333333333	Test Acc: 0.9847
+Itr: 99	Epoch: 9	Train Acc: 0.9563166666666667	Test Acc: 0.9869
+Itr: 99	Epoch: 10	Train Acc: 0.9556833333333333	Test Acc: 0.9877
+Itr: 99	Epoch: 11	Train Acc: 0.9554833333333334	Test Acc: 0.9852
+Itr: 99	Epoch: 12	Train Acc: 0.96065	Test Acc: 0.9873
+Itr: 99	Epoch: 13	Train Acc: 0.9659666666666666	Test Acc: 0.9888
+Itr: 99	Epoch: 14	Train Acc: 0.9668833333333333	Test Acc: 0.9874
+Itr: 99	Epoch: 15	Train Acc: 0.9650166666666666	Test Acc: 0.9868
+Itr: 99	Epoch: 16	Train Acc: 0.9654666666666667	Test Acc: 0.9892
+Itr: 99	Epoch: 17	Train Acc: 0.9694166666666667	Test Acc: 0.9892
+Itr: 99	Epoch: 18	Train Acc: 0.9698833333333333	Test Acc: 0.9892
+Itr: 99	Epoch: 19	Train Acc: 0.9709	Test Acc: 0.9909
+Itr: 99	Epoch: 20	Train Acc: 0.9720833333333333	Test Acc: 0.9913
+Itr: 99	Epoch: 21	Train Acc: 0.9727	Test Acc: 0.9908
+Itr: 99	Epoch: 22	Train Acc: 0.97405	Test Acc: 0.9911
+Itr: 99	Epoch: 23	Train Acc: 0.9753833333333334	Test Acc: 0.9923
+Itr: 99	Epoch: 24	Train Acc: 0.9745666666666667	Test Acc: 0.9843
+Itr: 99	Epoch: 25	Train Acc: 0.9752833333333333	Test Acc: 0.9921
+Itr: 99	Epoch: 26	Train Acc: 0.97625	Test Acc: 0.9922
+Itr: 99	Epoch: 27	Train Acc: 0.9763	Test Acc: 0.9914
+Itr: 99	Epoch: 28	Train Acc: 0.9773333333333334	Test Acc: 0.9893
+Itr: 99	Epoch: 29	Train Acc: 0.9755666666666667	Test Acc: 0.9919
+Itr: 99	Epoch: 30	Train Acc: 0.9786166666666667	Test Acc: 0.991
+Itr: 99	Epoch: 31	Train Acc: 0.9783166666666666	Test Acc: 0.9905
+Itr: 99	Epoch: 32	Train Acc: 0.9794	Test Acc: 0.9921
+Itr: 99	Epoch: 33	Train Acc: 0.9784166666666667	Test Acc: 0.992
+Itr: 99	Epoch: 34	Train Acc: 0.9796333333333334	Test Acc: 0.9885
+Itr: 99	Epoch: 35	Train Acc: 0.97965	Test Acc: 0.9929
+Itr: 99	Epoch: 36	Train Acc: 0.9813833333333334	Test Acc: 0.9928
+Itr: 99	Epoch: 37	Train Acc: 0.9803666666666667	Test Acc: 0.992
+Itr: 99	Epoch: 38	Train Acc: 0.9819833333333333	Test Acc: 0.9932
+Itr: 99	Epoch: 39	Train Acc: 0.9812666666666666	Test Acc: 0.9929
+Itr: 99	Epoch: 40	Train Acc: 0.9798	Test Acc: 0.9917
+Itr: 99	Epoch: 41	Train Acc: 0.9837333333333333	Test Acc: 0.9906
+Itr: 99	Epoch: 42	Train Acc: 0.9817333333333333	Test Acc: 0.9918
+Itr: 99	Epoch: 43	Train Acc: 0.9816666666666667	Test Acc: 0.9929
+Itr: 99	Epoch: 44	Train Acc: 0.9809666666666667	Test Acc: 0.9934
+Itr: 99	Epoch: 45	Train Acc: 0.9824333333333334	Test Acc: 0.9894
+Itr: 99	Epoch: 46	Train Acc: 0.9822	Test Acc: 0.9914
+Itr: 99	Epoch: 47	Train Acc: 0.9820166666666666	Test Acc: 0.9933
+Itr: 99	Epoch: 48	Train Acc: 0.9838666666666667	Test Acc: 0.9925
+Itr: 99	Epoch: 49	Train Acc: 0.9827833333333333	Test Acc: 0.9885
+Saving ../buffer_storage/MNIST/ConvNet/replay_buffer_9.pt
+
+
+
+(distillation) stevenubuntu@stevenubuntu:~/Desktop/DATM-main/distill$ python DATM.py --cfg ../configs/MNIST/ConvIN/IPC10.yaml
+True
+CUDNN STATUS: True
+Train ZCA
+100%|██████████████████████████████████████████████████████████████████████| 60000/60000 [00:01<00:00, 47998.77it/s]
+Test ZCA
+100%|██████████████████████████████████████████████████████████████████████| 10000/10000 [00:00<00:00, 48661.09it/s]
+<class 'kornia.enhance.zca.ZCAWhitening'>
+wandb: Currently logged in as: 15121204 (use `wandb login --relogin` to force relogin)
+wandb: wandb version 0.16.1 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.12.11
+wandb: Run data is saved locally in /home/stevenubuntu/Desktop/DATM-main/distill/wandb/run-20231205_231705-hsdnxopj
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run eager-shadow-31
+wandb: ⭐️ View project at https://wandb.ai/15121204/MNIST_ipc10
+wandb: 🚀 View run at https://wandb.ai/15121204/MNIST_ipc10/runs/hsdnxopj
+Hyper-parameters: 
+ {'cfg': '../configs/MNIST/ConvIN/IPC10.yaml', 'dataset': 'MNIST', 'subset': 'imagenette', 'model': 'ConvNet', 'ipc': 10, 'eval_mode': 'S', 'num_eval': 1, 'eval_it': 1000, 'epoch_eval_train': 1000, 'Iteration': 1000, 'lr_img': 1000, 'lr_teacher': 0.01, 'lr_init': 0.01, 'batch_real': 256, 'batch_syn': 500, 'batch_train': 128, 'pix_init': 'samples_predicted_correctly', 'dsa': True, 'dsa_strategy': 'color_crop_cutout_flip_scale_rotate', 'data_path': '../dataset', 'buffer_path': '../buffer_storage', 'expert_epochs': 2, 'syn_steps': 30, 'max_start_epoch': 15, 'min_start_epoch': 0, 'zca': True, 'load_all': False, 'no_aug': False, 'texture': False, 'canvas_size': 2, 'canvas_samples': 1, 'max_files': None, 'max_experts': None, 'force_save': False, 'ema_decay': 0.9995, 'lr_y': 2.0, 'Momentum_y': 0.9, 'project': 'MNIST_ipc10', 'threshold': 1.0, 'record_loss': False, 'Sequential_Generation': True, 'expansion_end_epoch': 1000, 'current_max_start_epoch': 10, 'skip_first_eva': True, 'parall_eva': False, 'lr_lr': 1e-05, 'res': 32, 'device': 'cuda', 'Initialize_Label_With_Another_Model': False, 'Initialize_Label_Model': '', 'Initialize_Label_Model_Dir': '', 'Label_Model_Timestamp': -1, 'zca_trans': ZCAWhitening(), 'im_size': [28, 28], 'dc_aug_param': None, 'dsa_param': <utils.utils_baseline.ParamDiffAug object at 0x7f4f2ffe81f0>, '_wandb': {}, 'distributed': False}
+Evaluation model pool:  ['ConvNet']
+  0%|                                                                                     | 0/60000 [00:00<?, ?it/s]BUILDING DATASET
+/home/stevenubuntu/Desktop/DATM-main/distill/DATM.py:108: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  labels_all.append(class_map[torch.tensor(sample[1]).item()])
+100%|█████████████████████████████████████████████████████████████████████| 60000/60000 [00:00<00:00, 239829.83it/s]
+0it [00:00, ?it/s]class c = 0: 5923 real images
+class c = 1: 6742 real images
+class c = 2: 5958 real images
+class c = 3: 6131 real images
+class c = 4: 5842 real images
+class c = 5: 5421 real images
+class c = 6: 5918 real images
+class c = 7: 6265 real images
+class c = 8: 5851 real images
+class c = 9: 5949 real images
+60000it [00:00, 2713559.70it/s]
+real images channel 0, mean = -0.0000, std = 0.3602
+/home/stevenubuntu/Desktop/DATM-main/distill/DATM.py:133: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at  /opt/conda/conda-bld/pytorch_1646756402876/work/torch/csrc/utils/tensor_new.cpp:210.)
+  label_syn = torch.tensor([np.ones(args.ipc)*i for i in range(num_classes)], dtype=torch.long, requires_grad=False, device=args.device).view(-1) # [0,0,0, 1,1,1, ..., 9,9,9]
+Expert Dir: ../buffer_storage/MNIST/ConvNet
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_7.pt
+0.0.0
+1.0.0
+2.0.0
+3.0.0
+4.0.0
+5.0.0
+6.0.0
+7.0.0
+8.0.0
+9.0.0
+[2023-12-05 23:17:07] training begins
+InitialAcc:1.0
+/home/stevenubuntu/anaconda3/envs/distillation/lib/python3.9/site-packages/torch/functional.py:568: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  /opt/conda/conda-bld/pytorch_1646756402876/work/aten/src/ATen/native/TensorShape.cpp:2228.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+[2023-12-05 23:17:10] iter = 0000, loss = 0.9034
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_8.pt
+[2023-12-05 23:17:15] iter = 0010, loss = 0.9593
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_1.pt
+[2023-12-05 23:17:21] iter = 0020, loss = 0.7693
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_5.pt
+[2023-12-05 23:17:26] iter = 0030, loss = 0.8946
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_3.pt
+[2023-12-05 23:17:31] iter = 0040, loss = 0.7250
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_4.pt
+[2023-12-05 23:17:37] iter = 0050, loss = 0.8330
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_2.pt
+[2023-12-05 23:17:43] iter = 0060, loss = 0.8985
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_0.pt
+[2023-12-05 23:17:49] iter = 0070, loss = 0.6416
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_9.pt
+[2023-12-05 23:17:56] iter = 0080, loss = 0.7773
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_6.pt
+[2023-12-05 23:18:02] iter = 0090, loss = 0.7355
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_0.pt
+[2023-12-05 23:18:08] iter = 0100, loss = 0.8519
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_4.pt
+[2023-12-05 23:18:15] iter = 0110, loss = 0.7101
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_8.pt
+[2023-12-05 23:18:21] iter = 0120, loss = 1.1380
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_7.pt
+[2023-12-05 23:18:27] iter = 0130, loss = 0.6490
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_1.pt
+[2023-12-05 23:18:34] iter = 0140, loss = 0.7224
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_9.pt
+[2023-12-05 23:18:40] iter = 0150, loss = 0.7175
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_6.pt
+[2023-12-05 23:18:46] iter = 0160, loss = 0.6544
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_3.pt
+[2023-12-05 23:18:52] iter = 0170, loss = 0.5597
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_2.pt
+[2023-12-05 23:18:58] iter = 0180, loss = 0.8557
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_5.pt
+[2023-12-05 23:19:04] iter = 0190, loss = 0.7209
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_2.pt
+[2023-12-05 23:19:10] iter = 0200, loss = 0.6356
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_7.pt
+[2023-12-05 23:19:17] iter = 0210, loss = 0.8490
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_6.pt
+[2023-12-05 23:19:23] iter = 0220, loss = 0.7986
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_8.pt
+[2023-12-05 23:19:30] iter = 0230, loss = 0.6879
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_1.pt
+[2023-12-05 23:19:36] iter = 0240, loss = 0.5730
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_0.pt
+[2023-12-05 23:19:42] iter = 0250, loss = 0.6167
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_5.pt
+[2023-12-05 23:19:48] iter = 0260, loss = 0.5769
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_9.pt
+[2023-12-05 23:19:55] iter = 0270, loss = 0.8856
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_4.pt
+[2023-12-05 23:20:01] iter = 0280, loss = 0.7616
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_3.pt
+[2023-12-05 23:20:07] iter = 0290, loss = 0.6485
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_9.pt
+[2023-12-05 23:20:13] iter = 0300, loss = 0.6552
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_7.pt
+[2023-12-05 23:20:20] iter = 0310, loss = 0.7812
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_5.pt
+[2023-12-05 23:20:26] iter = 0320, loss = 0.5619
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_3.pt
+[2023-12-05 23:20:32] iter = 0330, loss = 0.7021
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_2.pt
+[2023-12-05 23:20:38] iter = 0340, loss = 0.5486
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_4.pt
+[2023-12-05 23:20:44] iter = 0350, loss = 0.7346
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_6.pt
+[2023-12-05 23:20:51] iter = 0360, loss = 0.5542
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_0.pt
+[2023-12-05 23:20:57] iter = 0370, loss = 0.4879
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_1.pt
+[2023-12-05 23:21:03] iter = 0380, loss = 0.6606
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_8.pt
+[2023-12-05 23:21:10] iter = 0390, loss = 0.7928
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_3.pt
+[2023-12-05 23:21:16] iter = 0400, loss = 0.8387
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_5.pt
+[2023-12-05 23:21:22] iter = 0410, loss = 0.6530
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_2.pt
+[2023-12-05 23:21:28] iter = 0420, loss = 0.5288
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_1.pt
+[2023-12-05 23:21:34] iter = 0430, loss = 0.8264
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_8.pt
+[2023-12-05 23:21:40] iter = 0440, loss = 0.7593
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_4.pt
+[2023-12-05 23:21:46] iter = 0450, loss = 0.8597
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_6.pt
+[2023-12-05 23:21:52] iter = 0460, loss = 0.6366
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_0.pt
+[2023-12-05 23:21:58] iter = 0470, loss = 0.5881
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_9.pt
+[2023-12-05 23:22:03] iter = 0480, loss = 0.6036
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_7.pt
+[2023-12-05 23:22:09] iter = 0490, loss = 0.4887
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_8.pt
+[2023-12-05 23:22:15] iter = 0500, loss = 0.6241
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_6.pt
+[2023-12-05 23:22:22] iter = 0510, loss = 0.5744
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_1.pt
+[2023-12-05 23:22:28] iter = 0520, loss = 0.5009
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_7.pt
+[2023-12-05 23:22:33] iter = 0530, loss = 0.6675
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_4.pt
+[2023-12-05 23:22:39] iter = 0540, loss = 0.5126
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_0.pt
+[2023-12-05 23:22:45] iter = 0550, loss = 0.7594
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_5.pt
+[2023-12-05 23:22:51] iter = 0560, loss = 0.5924
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_9.pt
+[2023-12-05 23:22:57] iter = 0570, loss = 0.6025
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_2.pt
+[2023-12-05 23:23:03] iter = 0580, loss = 0.5562
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_3.pt
+[2023-12-05 23:23:09] iter = 0590, loss = 0.5822
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_5.pt
+[2023-12-05 23:23:14] iter = 0600, loss = 0.8785
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_4.pt
+[2023-12-05 23:23:20] iter = 0610, loss = 0.9801
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_7.pt
+[2023-12-05 23:23:26] iter = 0620, loss = 0.6462
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_9.pt
+[2023-12-05 23:23:33] iter = 0630, loss = 0.9149
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_2.pt
+[2023-12-05 23:23:39] iter = 0640, loss = 0.8697
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_6.pt
+[2023-12-05 23:23:45] iter = 0650, loss = 0.5714
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_1.pt
+[2023-12-05 23:23:52] iter = 0660, loss = 0.5292
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_3.pt
+[2023-12-05 23:23:58] iter = 0670, loss = 0.8808
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_8.pt
+[2023-12-05 23:24:04] iter = 0680, loss = 0.6179
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_0.pt
+[2023-12-05 23:24:10] iter = 0690, loss = 0.8440
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_8.pt
+[2023-12-05 23:24:16] iter = 0700, loss = 0.7729
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_5.pt
+[2023-12-05 23:24:22] iter = 0710, loss = 0.7261
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_2.pt
+[2023-12-05 23:24:28] iter = 0720, loss = 0.8117
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_3.pt
+[2023-12-05 23:24:34] iter = 0730, loss = 0.8768
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_6.pt
+[2023-12-05 23:24:40] iter = 0740, loss = 0.8273
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_4.pt
+[2023-12-05 23:24:46] iter = 0750, loss = 0.6921
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_9.pt
+[2023-12-05 23:24:51] iter = 0760, loss = 0.7238
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_0.pt
+[2023-12-05 23:24:58] iter = 0770, loss = 0.8370
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_7.pt
+[2023-12-05 23:25:03] iter = 0780, loss = 0.8437
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_1.pt
+[2023-12-05 23:25:09] iter = 0790, loss = 0.6036
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_1.pt
+[2023-12-05 23:25:15] iter = 0800, loss = 0.7840
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_9.pt
+[2023-12-05 23:25:21] iter = 0810, loss = 0.7599
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_7.pt
+[2023-12-05 23:25:27] iter = 0820, loss = 0.5759
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_5.pt
+[2023-12-05 23:25:33] iter = 0830, loss = 0.7093
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_8.pt
+[2023-12-05 23:25:38] iter = 0840, loss = 0.8054
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_3.pt
+[2023-12-05 23:25:44] iter = 0850, loss = 0.6428
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_4.pt
+[2023-12-05 23:25:49] iter = 0860, loss = 0.6314
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_2.pt
+[2023-12-05 23:25:55] iter = 0870, loss = 0.5234
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_6.pt
+[2023-12-05 23:26:01] iter = 0880, loss = 0.6090
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_0.pt
+[2023-12-05 23:26:07] iter = 0890, loss = 0.7907
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_0.pt
+[2023-12-05 23:26:13] iter = 0900, loss = 0.5268
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_4.pt
+[2023-12-05 23:26:18] iter = 0910, loss = 0.7430
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_2.pt
+[2023-12-05 23:26:24] iter = 0920, loss = 0.6932
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_3.pt
+[2023-12-05 23:26:30] iter = 0930, loss = 0.5183
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_9.pt
+[2023-12-05 23:26:36] iter = 0940, loss = 0.8440
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_5.pt
+[2023-12-05 23:26:41] iter = 0950, loss = 0.7547
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_6.pt
+[2023-12-05 23:26:47] iter = 0960, loss = 0.4981
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_7.pt
+[2023-12-05 23:26:53] iter = 0970, loss = 0.6033
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_1.pt
+[2023-12-05 23:26:59] iter = 0980, loss = 0.8536
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_8.pt
+[2023-12-05 23:27:05] iter = 0990, loss = 0.5896
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_4.pt
+-------------------------
+Evaluation
+model_train = ConvNet, model_eval = ConvNet, iteration = 1000
+DSA augmentation strategy: 
+ color_crop_cutout_flip_scale_rotate
+DSA augmentation parameters: 
+ {'aug_mode': 'S', 'prob_flip': 0.5, 'ratio_scale': 1.2, 'ratio_rotate': 15.0, 'ratio_crop_pad': 0.125, 'ratio_cutout': 0.5, 'ratio_noise': 0.05, 'brightness': 1.0, 'saturation': 2.0, 'contrast': 0.5, 'batchmode': False, 'latestseed': -1}
+100%|██████████████████████████████████████████████████████████████████████████| 1001/1001 [00:05<00:00, 192.01it/s]
+[2023-12-05 23:27:15] Evaluate_00: epoch = 1000 train time = 5 s train loss = 0.005147 train acc = 0.0100, test acc = 0.9577
+Evaluate 1 random ConvNet, mean = 0.9577 std = 0.0000
+-------------------------
+[2023-12-05 23:27:16] iter = 1000, loss = 0.7782
+
+wandb: Waiting for W&B process to finish... (success).
+wandb:                                                                                
+wandb: 
+wandb: Run history:
+wandb:     Accuracy/ConvNet ▁
+wandb:           Grand_Loss ▆▅▆▅▅█▆▃▅▇▇▄▇▂▃▅▃▄▇▂▁▇▇▂▃▇▄▄▂▆▄▇▃▄▆▆▄▅▆▂
+wandb: Max_Accuracy/ConvNet ▁
+wandb:      Max_Std/ConvNet ▁
+wandb:             Progress ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:          Start_Epoch ▂▂▄▃▁▅▅▂▁▆▇▃▆▂▃▅▃▁▆▂▂▇▇▂▁▇▃▁▂▆▄█▁▅▆▆▅▅▆▂
+wandb:          Std/ConvNet ▁
+wandb:         Synthetic_LR ▁▂▃▃▄▄▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇▇▇█▇▇▇▇▇███████████
+wandb:                falts ▅▂▂▁▂▅█
+wandb: 
+wandb: Run summary:
+wandb:     Accuracy/ConvNet 0.9577
+wandb:           Grand_Loss 0.77822
+wandb: Max_Accuracy/ConvNet 0.9577
+wandb:      Max_Std/ConvNet 0.0
+wandb:             Progress 1000
+wandb:          Start_Epoch 7
+wandb:          Std/ConvNet 0.0
+wandb:         Synthetic_LR 0.02895
+wandb:                falts 12
+wandb: 
+wandb: Synced eager-shadow-31: https://wandb.ai/15121204/MNIST_ipc10/runs/hsdnxopj
+wandb: Synced 6 W&B file(s), 4 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20231205_231705-hsdnxopj/logs
+
