@@ -1,0 +1,70 @@
+  0%|                                                                                     | 0/60000 [00:00<?, ?it/s]/home/stevenubuntu/Desktop/DATM-main/distill/DATM.py:108: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  labels_all.append(class_map[torch.tensor(sample[1]).item()])
+100%|█████████████████████████████████████████████████████████████████████| 60000/60000 [00:00<00:00, 243342.26it/s]
+60000it [00:00, 2824859.29it/s]
+/home/stevenubuntu/Desktop/DATM-main/distill/DATM.py:133: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at  /opt/conda/conda-bld/pytorch_1646756402876/work/torch/csrc/utils/tensor_new.cpp:210.)
+  label_syn = torch.tensor([np.ones(args.ipc)*i for i in range(num_classes)], dtype=torch.long, requires_grad=False, device=args.device).view(-1) # [0,0,0, 1,1,1, ..., 9,9,9]
+Hyper-parameters:
+ {'cfg': '../configs/MNIST/ConvIN/IPC10.yaml', 'dataset': 'MNIST', 'subset': 'imagenette', 'model': 'ConvNet', 'ipc': 10, 'eval_mode': 'S', 'num_eval': 1, 'eval_it': 1000, 'epoch_eval_train': 1000, 'Iteration': 1000, 'lr_img': 1000, 'lr_teacher': 0.01, 'lr_init': 0.01, 'batch_real': 256, 'batch_syn': 500, 'batch_train': 128, 'pix_init': 'samples_predicted_correctly', 'dsa': True, 'dsa_strategy': 'color_crop_cutout_flip_scale_rotate', 'data_path': '../dataset', 'buffer_path': '../buffer_storage', 'expert_epochs': 2, 'syn_steps': 20, 'max_start_epoch': 4, 'min_start_epoch': 0, 'zca': True, 'load_all': False, 'no_aug': False, 'texture': False, 'canvas_size': 2, 'canvas_samples': 1, 'max_files': None, 'max_experts': None, 'force_save': False, 'ema_decay': 0.9995, 'lr_y': 2.0, 'Momentum_y': 0.9, 'project': 'MNIST_ipc10', 'threshold': 1.0, 'record_loss': False, 'Sequential_Generation': True, 'expansion_end_epoch': 1000, 'current_max_start_epoch': 10, 'skip_first_eva': True, 'parall_eva': False, 'lr_lr': 1e-05, 'res': 32, 'device': 'cuda', 'Initialize_Label_With_Another_Model': False, 'Initialize_Label_Model': '', 'Initialize_Label_Model_Dir': '', 'Label_Model_Timestamp': -1, 'zca_trans': ZCAWhitening(), 'im_size': [28, 28], 'dc_aug_param': None, 'dsa_param': <utils.utils_baseline.ParamDiffAug object at 0x7f46aa8681f0>, '_wandb': {}, 'distributed': False}
+Evaluation model pool:  ['ConvNet']
+BUILDING DATASET
+class c = 0: 5923 real images
+class c = 1: 6742 real images
+class c = 2: 5958 real images
+class c = 3: 6131 real images
+class c = 4: 5842 real images
+class c = 5: 5421 real images
+class c = 6: 5918 real images
+class c = 7: 6265 real images
+class c = 8: 5851 real images
+class c = 9: 5949 real images
+real images channel 0, mean = -0.0000, std = 0.3602
+Expert Dir: ../buffer_storage/MNIST/ConvNet
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_7.pt
+0.0.0
+1.0.0
+2.0.0
+3.0.0
+4.0.0
+5.0.0
+6.0.0
+7.0.0
+8.0.0
+9.0.0
+[2023-12-05 23:00:19] training begins
+InitialAcc:1.0
+/home/stevenubuntu/anaconda3/envs/distillation/lib/python3.9/site-packages/torch/functional.py:568: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  /opt/conda/conda-bld/pytorch_1646756402876/work/aten/src/ATen/native/TensorShape.cpp:2228.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+[2023-12-05 23:00:21] iter = 0000, loss = 0.9384
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_8.pt
+[2023-12-05 23:00:25] iter = 0010, loss = 0.8043
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_1.pt
+[2023-12-05 23:00:29] iter = 0020, loss = 0.7417
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_5.pt
+[2023-12-05 23:00:33] iter = 0030, loss = 0.7551
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_3.pt
+[2023-12-05 23:00:37] iter = 0040, loss = 0.7850
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_4.pt
+[2023-12-05 23:00:41] iter = 0050, loss = 0.7395
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_2.pt
+[2023-12-05 23:00:45] iter = 0060, loss = 0.6623
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_0.pt
+[2023-12-05 23:00:49] iter = 0070, loss = 0.5933
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_9.pt
+[2023-12-05 23:00:52] iter = 0080, loss = 0.6176
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_6.pt
+[2023-12-05 23:00:57] iter = 0090, loss = 0.5773
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_0.pt
+[2023-12-05 23:01:00] iter = 0100, loss = 0.6152
+loading file ../buffer_storage/MNIST/ConvNet/replay_buffer_4.pt
+[2023-12-05 23:01:04] iter = 0110, loss = 0.7202
+Traceback (most recent call last):
+  File "/home/stevenubuntu/Desktop/DATM-main/distill/DATM.py", line 592, in <module>
+    main(args)
+  File "/home/stevenubuntu/Desktop/DATM-main/distill/DATM.py", line 554, in main
+    grand_loss.backward()
+  File "/home/stevenubuntu/anaconda3/envs/distillation/lib/python3.9/site-packages/torch/_tensor.py", line 363, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/home/stevenubuntu/anaconda3/envs/distillation/lib/python3.9/site-packages/torch/autograd/__init__.py", line 173, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

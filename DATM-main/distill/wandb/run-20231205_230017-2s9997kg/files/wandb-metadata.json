@@ -1,0 +1,21 @@
+{
+    "os": "Linux-6.2.0-37-generic-x86_64-with-glibc2.35",
+    "python": "3.9.7",
+    "heartbeatAt": "2023-12-06T04:00:17.612905",
+    "startedAt": "2023-12-06T04:00:17.038371",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3090 Ti",
+    "gpu_count": 1,
+    "cpu_count": 20,
+    "cuda": null,
+    "args": [
+        "--cfg",
+        "../configs/MNIST/ConvIN/IPC10.yaml"
+    ],
+    "state": "running",
+    "program": "/home/stevenubuntu/Desktop/DATM-main/distill/DATM.py",
+    "codePath": "DATM.py",
+    "host": "stevenubuntu",
+    "username": "stevenubuntu",
+    "executable": "/home/stevenubuntu/anaconda3/envs/distillation/bin/python"
+}
