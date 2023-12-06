@@ -40,7 +40,7 @@ python DATM.py --cfg ../configs/MNIST/ConvIN/IPC10.yaml
     
  
 
-<br />The second paper we pick is "Efficient Dataset Distillation using Random Feature Approximation"
+<br />******The second paper we pick is "Efficient Dataset Distillation using Random Feature Approximation"******
 <br />***All the code related to this paper is placed in "RFAD-master"***
 <br />**run steps** The following run steps are from **https://github.com/yolky/RFAD.git**
 # Example usage
