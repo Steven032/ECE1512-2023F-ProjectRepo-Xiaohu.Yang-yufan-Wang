@@ -43,9 +43,30 @@ pip install torch torchvision matplotlib numpy
 pip install torch torchvision matplotlib
 ```
 
-7. Task1_2(a)_MHIST.ipynb
-   
+The following part needs to use the MHist Dataset: Download the MHist dataset from the provided link and extract it to your desired location.
 
+Annotations: Ensure that the CSV file (annotations.csv) containing image annotations is available in the dataset directory.
+
+
+
+7. Task1_2(a)_MHIST.ipynb
+   This code demonstrates image classification using the mHist dataset, employing TensorFlow and scikit-learn for image processing and model training. It calculates the accuracy in the end.
+
+```bash
+pip install pandas numpy Pillow tensorflow tqdm scikit-learn
+```
+
+8. Task1_2(b)_MHIST.ipynb
+   It showcases the implementation of the Gradient Matching algorithm for model condensation, enabling efficient adaptation to new tasks while preserving knowledge from previous experiences.
+   Prerequisites:TensorFlow (2.x), NumPy, pandas, PIL (Pillow) ,tqdm ,scikit-learn.
+
+9. Task1_2(c)_MHIST.ipynb
+   It visualizes the outcome mentioned above.
+```bash
+pip install pandas Pillow tensorflow tqdm matplotlib
+```
+
+10. Task1_2(d)_MHIST.ipynb
 
 
 
