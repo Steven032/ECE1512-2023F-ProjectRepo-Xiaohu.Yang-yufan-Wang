@@ -8,8 +8,21 @@
 pip install torch torchvision numpy
 ```
 
-2. Task1_2(b)(c)
+2. Task1_2(b)(c)MNIST.ipynb
+   This Python script implements a gradient matching algorithm for improving model generalization by aligning gradients from a synthetic dataset with those from a condensed     real dataset.
 
+```bash
+pip install torch
+```
+
+3. Task_2(d)MNIST.ipynb
+   It utilizes scikit-learn and matplotlib to perform a specific task. The code fetches a dataset using scikit-learn's fetch_openml function and generates a plot with multiple axes using matplotlib.
+
+```bash
+pip install scikit-learn matplotlib
+```
+4. Task1_2(e)_MHIST.ipynb
+   
 
 
 
