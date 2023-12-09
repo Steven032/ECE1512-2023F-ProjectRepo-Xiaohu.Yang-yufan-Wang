@@ -67,9 +67,31 @@ pip install pandas Pillow tensorflow tqdm matplotlib
 ```
 
 10. Task1_2(d)_MHIST.ipynb
+    Adding Guassain Noise to the code
 
+```bash
+pip install pandas Pillow tensorflow tqdm matplotlib
+```
+11. Task1_2(e)_MHIST.ipynb
+    This showcases the use of a synthetic dataset generated through the Gradient Matching algorithm on the mhist dataset. It involves loading annotations, creating a custom dataset class, defining transformations, training a CNN model, and evaluating its performance on both the original and synthetic test sets.
 
+```bash
+pip install pandas Pillow tensorflow tqdm matplotlib
+```
 
+12. Task1_3_MHIST.ipynb
+    The trained models are evaluated on both the original and synthetic test sets.
+
+```bash
+pip install pandas pillow torch torchvision matplotlib
+```
+
+13. Task1_4_MHIST.ipynb
+    It is designed for a machine learning project involving the generation of synthetic datasets and continual learning using a convolutional neural network (CNN). It demonstrates tasks such as data preprocessing, model training with Gradient Matching, and continual learning across multiple synthetic tasks.
+
+```bash
+pip install pandas pillow numpy scikit-learn tensorflow tqdm
+```
 
 **Task2**
 <br />***The PC sysytm we use to run is Ubuntu, the GPU we use is GTX3090Ti***
