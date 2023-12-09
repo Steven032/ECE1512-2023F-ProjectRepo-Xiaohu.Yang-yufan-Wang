@@ -1,6 +1,13 @@
 ****This repo is for ECE1512 Project B****
 **Task1**
 
+Task1_2(a)_MNIST.ipynb
+pip install torch torchvision numpy
+This PyTorch project implements a Multi-Layer Perceptron (MLP) to classify handwritten digits from the MNIST dataset, achieving high accuracy. 
+
+Task1_2(b)(c)
+
+
 
 
 
