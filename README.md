@@ -2,10 +2,11 @@
 **Task1**
 
 1. Task1_2(a)_MNIST.ipynb
-   This PyTorch project implements a Multi-Layer Perceptron (MLP) to classify handwritten digits from the MNIST dataset, achieving high accuracy. 
+   This PyTorch project implements a Multi-Layer Perceptron (MLP) to classify handwritten digits from the MNIST dataset, achieving high accuracy.
 
+```bash
 pip install torch torchvision numpy
-
+```
 
 2. Task1_2(b)(c)
 
