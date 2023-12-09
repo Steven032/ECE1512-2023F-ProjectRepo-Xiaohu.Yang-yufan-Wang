@@ -16,13 +16,36 @@ pip install torch
 ```
 
 3. Task_2(d)MNIST.ipynb
-   It utilizes scikit-learn and matplotlib to perform a specific task. The code fetches a dataset using scikit-learn's fetch_openml function and generates a plot with multiple axes using matplotlib.
+   It utilizes scikit-learn and matplotlib to perform a specific task. The code fetches a dataset using scikit-learn's fetch_openml function and generates a plot with
+   multiple axes using matplotlib.
 
 ```bash
 pip install scikit-learn matplotlib
 ```
-4. Task1_2(e)_MHIST.ipynb
+4. Task1_2(e)_MNIST.ipynb
+   It is is divided into two main parts:Synthetic Dataset Generation and Model Training on Synthetic Dataset.
+
+```bash
+pip install torch torchvision matplotlib numpy
+```
+
+5. Task1_3_MNIST.ipynb
+   It is divided into the following sections, Model Architectures, Synthetic Dataset Generation, Model Training on Synthetic Dataset, and Performance Evaluation.
+
+```bash
+pip install torch torchvision matplotlib numpy
+```
+
+6. Task1_4_MNIST.ipynb
+   It consists of the following key components:Model Definition, Gradient Matching Algorithm, Model Training, Continual Learning, and Performance Evaluation.
+
+```bash
+pip install torch torchvision matplotlib
+```
+
+7. Task1_2(a)_MHIST.ipynb
    
+
 
 
 
